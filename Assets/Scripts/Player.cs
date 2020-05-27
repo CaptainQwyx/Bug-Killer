@@ -1,11 +1,15 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    // configuration parameters
     [SerializeField] float moveSpeed = 6f;
     [SerializeField] float padding = 0.5f;
+    [SerializeField] GameObject bulletPrefab = null;
+    [SerializeField] float bulletSpeed = 20f;
 
     // configuration
     float xMin = 0f;
@@ -23,6 +27,19 @@ public class Player : MonoBehaviour
     void Update()
     {
         Move();
+        Fire();
+    }
+
+    private void Fire()
+    {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            GameObject bullet = Instantiate(
+                bulletPrefab,
+                transform.position,
+                Quaternion.identity) as GameObject;
+            bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(0, bulletSpeed);
+        }
     }
 
     private void Move()
