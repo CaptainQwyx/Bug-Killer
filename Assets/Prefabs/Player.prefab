@@ -98,3 +98,5 @@ MonoBehaviour:
   padding: 0.5
   bulletPrefab: {fileID: 8053908029533024175, guid: 964fcb0b09d4829408781d503e1adf6a,
     type: 3}
+  bulletSpeed: 20
+  fireDelay: 0.12

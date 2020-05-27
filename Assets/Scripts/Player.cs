@@ -10,6 +10,9 @@ public class Player : MonoBehaviour
     [SerializeField] float padding = 0.5f;
     [SerializeField] GameObject bulletPrefab = null;
     [SerializeField] float bulletSpeed = 20f;
+    [SerializeField] float fireDelay = 0.5f;
+
+    Coroutine firingCoroutine = null;
 
     // configuration
     float xMin = 0f;
@@ -34,11 +37,24 @@ public class Player : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
+            firingCoroutine = StartCoroutine(ShootOneBullet());
+        }
+        if (Input.GetButtonUp("Fire1"))
+        {
+            StopCoroutine(firingCoroutine);
+        }
+    }
+
+    private IEnumerator ShootOneBullet()
+    {
+        while (true)
+        {
             GameObject bullet = Instantiate(
                 bulletPrefab,
                 transform.position,
                 Quaternion.identity) as GameObject;
             bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(0, bulletSpeed);
+            yield return new WaitForSeconds(fireDelay);
         }
     }
 
