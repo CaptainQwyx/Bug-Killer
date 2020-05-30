@@ -7,7 +7,7 @@ public class EnemySpawner : MonoBehaviour
 {
 
     // config params
-    [SerializeField] List<WaveConfig> waveConfigs;
+    [SerializeField] List<WaveConfig> waveConfigs = null;
     [SerializeField] int startingWave = 0;
     [SerializeField] bool looping = false;
 

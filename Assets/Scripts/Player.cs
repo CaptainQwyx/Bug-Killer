@@ -10,6 +10,10 @@ public class Player : MonoBehaviour
     [SerializeField] float moveSpeed = 6f;
     [SerializeField] float padding = 0.5f;
     [SerializeField] int health = 200;
+    [SerializeField] AudioClip shootSFX = null;
+    [SerializeField] [Range(0,1)] float shootVolume = 1f;
+    [SerializeField] AudioClip deathSFX = null;
+    [SerializeField] [Range(0,1)] float deathVolume = 1f;
 
     [Header("Projectile")]
     [SerializeField] GameObject bulletPrefab = null;
@@ -53,8 +57,14 @@ public class Player : MonoBehaviour
 
         if (health <= 0)
         {
-            Destroy(gameObject);
+            Die();
         }
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
+        AudioSource.PlayClipAtPoint(deathSFX, Camera.main.transform.position, deathVolume);
     }
 
     private void Fire()
@@ -73,6 +83,7 @@ public class Player : MonoBehaviour
     {
         while (true)
         {
+            AudioSource.PlayClipAtPoint(shootSFX, Camera.main.transform.position, shootVolume);
             GameObject bullet = Instantiate(
                 bulletPrefab,
                 transform.position,

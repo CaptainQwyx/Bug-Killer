@@ -13,9 +13,13 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] GameObject bulletPrefab = null;
     [SerializeField] float bulletSpeed = 12f;
+    [SerializeField] AudioClip shootSFX = null;
+    [SerializeField] [Range(0, 1)] float shootVolume = 1f;
 
-    [SerializeField] GameObject deathVFX;
+    [SerializeField] GameObject deathVFX = null;
     [SerializeField] float durationOfExplosion = 1f;
+    [SerializeField] AudioClip deathSFX = null;
+    [SerializeField] [Range(0,1)] float deathVolume = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +50,8 @@ public class Enemy : MonoBehaviour
             transform.position,
             bulletPrefab.transform.rotation) as GameObject;
         bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -bulletSpeed);
+
+        AudioSource.PlayClipAtPoint(shootSFX, Camera.main.transform.position, shootVolume);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -72,6 +78,7 @@ public class Enemy : MonoBehaviour
     {
         Destroy(gameObject);
 
+        AudioSource.PlayClipAtPoint(deathSFX, Camera.main.transform.position, deathVolume);
         GameObject explosion = Instantiate(deathVFX, transform.position, transform.rotation);
         Destroy(explosion, durationOfExplosion);
     }

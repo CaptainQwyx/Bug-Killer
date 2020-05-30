@@ -97,7 +97,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 6
   padding: 0.5
-  health: 200
+  health: 1000
+  shootSFX: {fileID: 8300000, guid: 87306ef36f85334469041c2689c6867d, type: 3}
+  shootVolume: 0.2
+  deathSFX: {fileID: 8300000, guid: 538762869c036fe48a5011fe775cd9ec, type: 3}
+  deathVolume: 1
   bulletPrefab: {fileID: 8053908029533024175, guid: 964fcb0b09d4829408781d503e1adf6a,
     type: 3}
   bulletSpeed: 20
