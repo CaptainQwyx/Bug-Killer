@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9080227788522890213}
   - component: {fileID: 9080227788522890212}
   - component: {fileID: 9080227788522890234}
+  - component: {fileID: 149701975}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -96,7 +97,45 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 6
   padding: 0.5
+  health: 200
   bulletPrefab: {fileID: 8053908029533024175, guid: 964fcb0b09d4829408781d503e1adf6a,
     type: 3}
   bulletSpeed: 20
   fireDelay: 0.12
+--- !u!60 &149701975
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9080227788522890215}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.42, y: 0.46}
+    newSize: {x: 0.42, y: 0.46}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.14872284, y: 0.23375893}
+      - {x: -0.15521437, y: 0.22536802}
+      - {x: -0.21, y: 0.18003416}
+      - {x: -0.20545769, y: -0.11776328}
+      - {x: -0.14318645, y: -0.16593266}
+      - {x: -0.05728835, y: -0.16640735}
+      - {x: -0.056453727, y: -0.22646427}
+      - {x: 0.056847915, y: -0.23000002}
+      - {x: 0.058376014, y: -0.16376472}
+      - {x: 0.14413624, y: -0.16454268}
+      - {x: 0.20656915, y: -0.12964153}
+      - {x: 0.21227118, y: 0.18684769}
