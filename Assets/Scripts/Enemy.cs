@@ -13,7 +13,6 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] GameObject bulletPrefab = null;
     [SerializeField] float bulletSpeed = 12f;
-    [SerializeField] float bulletOffset = 0.1f;
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +40,7 @@ public class Enemy : MonoBehaviour
     {
         GameObject bullet = Instantiate(
             bulletPrefab,
-            new Vector2(transform.position.x, transform.position.y - bulletOffset),
+            transform.position,
             bulletPrefab.transform.rotation) as GameObject;
         bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -bulletSpeed);
     }
@@ -49,12 +48,16 @@ public class Enemy : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
-        ProcessHit(damageDealer);
+        if (damageDealer != null)
+        {
+            ProcessHit(damageDealer);
+        }
     }
 
     private void ProcessHit(DamageDealer damageDealer)
     {
         health -= damageDealer.GetDamage();
+        damageDealer.Hit();
 
         if (health <= 0)
         {
