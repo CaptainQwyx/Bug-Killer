@@ -115,6 +115,9 @@ MonoBehaviour:
   bulletPrefab: {fileID: 8053908029533024175, guid: d8d31d98512b8514ca6e1110283a6f54,
     type: 3}
   bulletSpeed: 6
+  deathVFX: {fileID: 3183297228712897386, guid: 46b2d2bbde863a044bbd62e72f7732e9,
+    type: 3}
+  durationOfExplosion: 1
 --- !u!58 &-4993005781175724790
 CircleCollider2D:
   m_ObjectHideFlags: 0
