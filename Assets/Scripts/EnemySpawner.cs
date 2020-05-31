@@ -40,7 +40,9 @@ public class EnemySpawner : MonoBehaviour
                 );
             newEnemy.GetComponent<EnemyPathing>().SetWaveConfig(waveConfig);
             
-            yield return new WaitForSeconds(waveConfig.GetTimeBetweenSpawns());
+            float delay = waveConfig.GetTimeBetweenSpawns() + 
+                UnityEngine.Random.Range(0, waveConfig.GetSpawnRandomFactor());
+            yield return new WaitForSeconds(delay);
         }
     }
 }

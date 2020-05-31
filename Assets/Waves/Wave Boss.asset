@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7e353f9af3953d249b190af14096e529, type: 3}
-  m_Name: Wave Bat2
+  m_Name: Wave Boss
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 3665260247646603211, guid: cf96f247580d9c24a846acf29ebc351f,
+  enemyPrefab: {fileID: 5476884222141127241, guid: 07f66b3a8f5a73a458cb8443bd6982d9,
     type: 3}
-  pathPrefab: {fileID: 4881058514727454549, guid: 7e57d45169d242243aa7c44740f3c546,
+  pathPrefab: {fileID: 4881058514727454549, guid: 1787735a16ab3164ca1d83dd3843a2fc,
     type: 3}
-  timeBetweenSpawns: 0.5
-  spawnRandomFactor: 0.3
-  numberofEnemies: 8
-  moveSpeed: 4
+  timeBetweenSpawns: 1
+  spawnRandomFactor: 1
+  numberofEnemies: 4
+  moveSpeed: 2
